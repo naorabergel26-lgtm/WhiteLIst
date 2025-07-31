@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דף קישורים משודרג</title>
+    <!-- קישור לקובץ העיצוב החיצוני -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="search-container">
+        <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" id="searchInput" placeholder="חפש קישור...">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="controls">
+            <button id="expand-all" class="control-button">פתח הכל</button>
+            <button id="collapse-all" class="control-button">סגור הכל</button>
+        </div>
+
+        <div id="no-results-message">לא נמצאו תוצאות התואמות לחיפוש</div>
+        
+        <div id="dynamic-categories-container"></div>
+        
+        <div id="main-categories-container">
+
+            <!-- שירותי Google -->
+            <section class="category-section" data-category-id="google">
+                <header class="category-header">
+                    <h2 class="category-title">שירותי Google</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="google-account"><a href="http://myaccount.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל"><img src="https://icons.duckduckgo.com/ip3/myaccount.google.com.ico" alt="" class="favicon">חשבון Google</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-calendar"><a href="http://calendar.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל יומן קלנדר"><img src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_3_2x.png" alt="" class="favicon">Google Calendar</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-chat"><a href="http://chat.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל צ'אט צאט"><img src="https://ssl.gstatic.com/images/branding/product/1x/chat_2020q4_48dp.png" alt="" class="favicon">Google Chat</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-docs"><a href="http://docs.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל דוקס מסמכים"><img src="https://ssl.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png" alt="" class="favicon">Google Docs</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-drive"><a href="http://drive.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל דרייב כונן"><img src="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_48dp.png" alt="" class="favicon">Google Drive</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-forms"><a href="http://forms.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל פורמס טפסים"><img src="https://ssl.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png" alt="" class="favicon">Google Forms</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-keep"><a href="http://keep.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל קיפ פתקים"><img src="https://ssl.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="" class="favicon">Google Keep</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-meet"><a href="http://meet.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל מיט פגישות"><img src="https://ssl.gstatic.com/images/branding/product/1x/meet_2020q4_48dp.png" alt="" class="favicon">Google Meet</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-passwords"><a href="http://passwords.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל סיסמאות"><img src="https://icons.duckduckgo.com/ip3/passwords.google.com.ico" alt="" class="favicon">Google Passwords</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-sheets"><a href="http://sheets.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל שיטס גיליונות"><img src="https://ssl.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png" alt="" class="favicon">Google Sheets</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-slides"><a href="http://slides.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל סליידס מצגות"><img src="https://ssl.gstatic.com/images/branding/product/1x/slides_2020q4_48dp.png" alt="" class="favicon">Google Slides</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-myactivity"><a href="http://myactivity.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל"><img src="https://icons.duckduckgo.com/ip3/myactivity.google.com.ico" alt="" class="favicon">הפעילות שלי</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="google-takeout"><a href="http://takeout.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל גיבוי"><img src="https://icons.duckduckgo.com/ip3/takeout.google.com.ico" alt="" class="favicon">Google Takeout</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- שירותי Microsoft -->
+            <section class="category-section" data-category-id="microsoft">
+                <header class="category-header">
+                    <h2 class="category-title">שירותי Microsoft</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="ms-office"><a href="http://www.office.com" target="_blank" class="link-card" data-hebrew-search="אופיס"><img src="https://icons.duckduckgo.com/ip3/office.com.ico" alt="" class="favicon">Microsoft 365 (Office)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="ms-onedrive"><a href="http://onedrive.live.com" target="_blank" class="link-card" data-hebrew-search="וואן דרייב"><img src="https://icons.duckduckgo.com/ip3/onedrive.live.com.ico" alt="" class="favicon">OneDrive</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="ms-teams"><a href="http://teams.microsoft.com" target="_blank" class="link-card" data-hebrew-search="טימס"><img src="https://icons.duckduckgo.com/ip3/teams.microsoft.com.ico" alt="" class="favicon">Microsoft Teams</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="ms-azure"><a href="http://azure.microsoft.com" target="_blank" class="link-card" data-hebrew-search="אז'ור"><img src="https://icons.duckduckgo.com/ip3/azure.microsoft.com.ico" alt="" class="favicon">Microsoft Azure</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="ms-site"><a href="http://www.microsoft.com/he-il" target="_blank" class="link-card" data-hebrew-search="מייקרוסופט"><img src="https://icons.duckduckgo.com/ip3/microsoft.com.ico" alt="" class="favicon">אתר Microsoft</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- בינה מלאכותית (AI) -->
+            <section class="category-section" data-category-id="ai">
+                <header class="category-header">
+                    <h2 class="category-title">בינה מלאכותית (AI)</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="ai-chatgpt"><a href="http://chatgpt.com" target="_blank" class="link-card" data-hebrew-search="צ'אט ג'יפיטי צאט גפיטי"><img src="https://icons.duckduckgo.com/ip3/chatgpt.com.ico" alt="" class="favicon">ChatGPT</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="ai-gemini"><a href="http://gemini.google.com" target="_blank" class="link-card" data-hebrew-search="ג'מיני גוגל גמינאי"><img src="https://icons.duckduckgo.com/ip3/gemini.google.com.ico" alt="" class="favicon">Google Gemini</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="ai-claude"><a href="http://claude.ai" target="_blank" class="link-card" data-hebrew-search="קלוד קלאוד"><img src="https://icons.duckduckgo.com/ip3/claude.ai.ico" alt="" class="favicon">Claude AI</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="ai-copilot"><a href="http://copilot.microsoft.com" target="_blank" class="link-card" data-hebrew-search="קופיילוט מייקרוסופט"><img src="https://icons.duckduckgo.com/ip3/copilot.microsoft.com.ico" alt="" class="favicon">Microsoft Copilot</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="ai-perplexity"><a href="http://www.perplexity.ai" target="_blank" class="link-card" data-hebrew-search="פרפלקסיטי"><img src="https://icons.duckduckgo.com/ip3/perplexity.ai.ico" alt="" class="favicon">Perplexity AI</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="ai-deepseek-chat"><a href="http://chat.deepseek.com" target="_blank" class="link-card" data-hebrew-search="דיפסיק צ'אט צאט"><img src="https://icons.duckduckgo.com/ip3/chat.deepseek.com.ico" alt="" class="favicon">DeepSeek Chat</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="ai-deepseek-site"><a href="http://www.deepseek.com/en" target="_blank" class="link-card" data-hebrew-search="דיפסיק"><img src="https://icons.duckduckgo.com/ip3/deepseek.com.ico" alt="" class="favicon">DeepSeek (אתר)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- פיתוח וטכנולוגיה -->
+            <section class="category-section" data-category-id="dev">
+                <header class="category-header">
+                    <h2 class="category-title">פיתוח וטכנולוגיה</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="dev-github"><a href="http://github.com" target="_blank" class="link-card" data-hebrew-search="גיטהאב"><img src="https://icons.duckduckgo.com/ip3/github.com.ico" alt="" class="favicon">GitHub</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="dev-stackoverflow"><a href="http://stackoverflow.com" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/stackoverflow.com.ico" alt="" class="favicon">Stack Overflow</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="dev-w3schools"><a href="http://www.w3schools.com" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/w3schools.com.ico" alt="" class="favicon">W3Schools</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="dev-python"><a href="http://www.python.org" target="_blank" class="link-card" data-hebrew-search="פייתון"><img src="https://icons.duckduckgo.com/ip3/python.org.ico" alt="" class="favicon">Python</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="dev-vs-full"><a href="http://visualstudio.microsoft.com" target="_blank" class="link-card" data-hebrew-search="ויז'ואל סטודיו"><img src="https://icons.duckduckgo.com/ip3/visualstudio.microsoft.com.ico" alt="" class="favicon">Visual Studio</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="dev-vscode"><a href="http://code.visualstudio.com" target="_blank" class="link-card" data-hebrew-search="ויז'ואל סטודיו"><img src="https://icons.duckduckgo.com/ip3/visualstudio.com.ico" alt="" class="favicon">VS Code</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="dev-notepadplusplus"><a href="http://notepad-plus-plus.org" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/notepad-plus-plus.org.ico" alt="" class="favicon">Notepad++</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="dev-ibm"><a href="http://www.ibm.com" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/ibm.com.ico" alt="" class="favicon">IBM</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- בנקים ופיננסים -->
+            <section class="category-section" data-category-id="banks">
+                <header class="category-header">
+                    <h2 class="category-title">בנקים ופיננסים</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="bank-hapoalim"><a href="http://www.bankhapoalim.co.il" target="_blank" class="link-card" data-hebrew-search="בנק"><img src="https://icons.duckduckgo.com/ip3/bankhapoalim.co.il.ico" alt="" class="favicon">בנק הפועלים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-leumi"><a href="http://www.bankleumi.co.il" target="_blank" class="link-card" data-hebrew-search="בנק"><img src="https://icons.duckduckgo.com/ip3/bankleumi.co.il.ico" alt="" class="favicon">בנק לאומי</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-mizrahi"><a href="http://www.mizrahi-tefahot.co.il" target="_blank" class="link-card" data-hebrew-search="בנק"><img src="https://icons.duckduckgo.com/ip3/mizrahi-tefahot.co.il.ico" alt="" class="favicon">בנק מזרחי טפחות</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-discount"><a href="http://www.discountbank.co.il" target="_blank" class="link-card" data-hebrew-search="בנק"><img src="https://icons.duckduckgo.com/ip3/discountbank.co.il.ico" alt="" class="favicon">בנק דיסקונט</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-fibi"><a href="http://www.fibi.co.il" target="_blank" class="link-card" data-hebrew-search="בנק פיבי"><img src="https://icons.duckduckgo.com/ip3/fibi.co.il.ico" alt="" class="favicon">הבינלאומי (FIBI)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-yahav"><a href="http://www.bank-yahav.co.il" target="_blank" class="link-card" data-hebrew-search="בנק"><img src="https://icons.duckduckgo.com/ip3/bank-yahav.co.il.ico" alt="" class="favicon">בנק יהב</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-jerusalem"><a href="http://www.bankjerusalem.co.il" target="_blank" class="link-card" data-hebrew-search="בנק"><img src="https://icons.duckduckgo.com/ip3/bankjerusalem.co.il.ico" alt="" class="favicon">בנק ירושלים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-massad"><a href="http://www.bankmassad.co.il" target="_blank" class="link-card" data-hebrew-search="בנק"><img src="https://icons.duckduckgo.com/ip3/bankmassad.co.il.ico" alt="" class="favicon">בנק מסד</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-mercantile"><a href="http://www.mercantile.co.il" target="_blank" class="link-card" data-hebrew-search="בנק"><img src="https://icons.duckduckgo.com/ip3/mercantile.co.il.ico" alt="" class="favicon">בנק מרכנתיל</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-onezero"><a href="http://www.onezerobank.com" target="_blank" class="link-card" data-hebrew-search="בנק וואן זירו אפס"><img src="https://icons.duckduckgo.com/ip3/onezerobank.com.ico" alt="" class="favicon">One Zero Bank</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="cc-isracard"><a href="http://digital.isracard.co.il" target="_blank" class="link-card" data-hebrew-search="אשראי"><img src="https://icons.duckduckgo.com/ip3/digital.isracard.co.il.ico" alt="" class="favicon">ישראכרט</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="cc-cal"><a href="http://www.cal-online.co.il" target="_blank" class="link-card" data-hebrew-search="אשראי"><img src="https://icons.duckduckgo.com/ip3/cal-online.co.il.ico" alt="" class="favicon">כאל (Cal)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="cc-max"><a href="http://www.max.co.il" target="_blank" class="link-card" data-hebrew-search="אשראי"><img src="https://icons.duckduckgo.com/ip3/max.co.il.ico" alt="" class="favicon">מקס (Max)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-post"><a href="http://www.postalfinance.co.il" target="_blank" class="link-card" data-hebrew-search="בנק דואר"><img src="https://icons.duckduckgo.com/ip3/postalfinance.co.il.ico" alt="" class="favicon">בנק הדואר</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bank-israel"><a href="http://www.boi.org.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/boi.org.il.ico" alt="" class="favicon">בנק ישראל</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- בריאות -->
+            <section class="category-section" data-category-id="health">
+                <header class="category-header">
+                    <h2 class="category-title">בריאות</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="health-clalit"><a href="http://www.clalit.co.il" target="_blank" class="link-card" data-hebrew-search="קופת חולים"><img src="https://icons.duckduckgo.com/ip3/clalit.co.il.ico" alt="" class="favicon">שירותי בריאות כללית</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="health-maccabi"><a href="http://www.maccabi4u.co.il" target="_blank" class="link-card" data-hebrew-search="קופת חולים"><img src="https://icons.duckduckgo.com/ip3/maccabi4u.co.il.ico" alt="" class="favicon">מכבי שירותי בריאות</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="health-meuhedet"><a href="http://www.meuhedet.co.il" target="_blank" class="link-card" data-hebrew-search="קופת חולים"><img src="https://icons.duckduckgo.com/ip3/meuhedet.co.il.ico" alt="" class="favicon">מאוחדת</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="health-leumit"><a href="http://www.leumit.co.il" target="_blank" class="link-card" data-hebrew-search="קופת חולים"><img src="https://icons.duckduckgo.com/ip3/leumit.co.il.ico" alt="" class="favicon">לאומית שירותי בריאות</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="health-sheba"><a href="http://www.sheba.co.il" target="_blank" class="link-card" data-hebrew-search="בית חולים"><img src="https://icons.duckduckgo.com/ip3/sheba.co.il.ico" alt="" class="favicon">בי"ח שיבא (תל השומר)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="health-ichilov"><a href="http://www.tasmc.org.il" target="_blank" class="link-card" data-hebrew-search="בית חולים"><img src="https://icons.duckduckgo.com/ip3/tasmc.org.il.ico" alt="" class="favicon">בי"ח איכילוב</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="health-hadassah"><a href="http://he.hadassah.org.il" target="_blank" class="link-card" data-hebrew-search="בית חולים"><img src="https://icons.duckduckgo.com/ip3/hadassah.org.il.ico" alt="" class="favicon">בי"ח הדסה</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="health-raphael"><a href="http://raphaelhospitals.co.il" target="_blank" class="link-card" data-hebrew-search="בית חולים"><img src="https://icons.duckduckgo.com/ip3/raphaelhospitals.co.il.ico" alt="" class="favicon">בי"ח רפאל</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- שירותים וחשבונות -->
+            <section class="category-section" data-category-id="bills">
+                <header class="category-header">
+                    <h2 class="category-title">שירותים וחשבונות</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="bill-iec"><a href="http://www.iec.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/iec.co.il.ico" alt="" class="favicon">חברת החשמל</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bill-mast"><a href="http://www.mast.co.il" target="_blank" class="link-card" data-hebrew-search="ארנונה"><img src="https://icons.duckduckgo.com/ip3/mast.co.il.ico" alt="" class="favicon">מאסט (שירותי ארנונה)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bill-mei-bat-yam"><a href="http://www.mei-bat-yam.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/mei-bat-yam.co.il.ico" alt="" class="favicon">מי בת ים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="bill-mei-shikma"><a href="http://mei-shikma.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/mei-shikma.co.il.ico" alt="" class="favicon">מי שקמה</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- תקשורת ואינטרנט -->
+            <section class="category-section" data-category-id="communication">
+                <header class="category-header">
+                    <h2 class="category-title">תקשורת ואינטרנט</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="comm-cellcom"><a href="http://cellcom.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/cellcom.co.il.ico" alt="" class="favicon">סלקום</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-partner"><a href="http://www.partner.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/partner.co.il.ico" alt="" class="favicon">פרטנר</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-pelephone"><a href="http://www.pelephone.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/pelephone.co.il.ico" alt="" class="favicon">פלאפון</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-hot"><a href="http://www.hot.net.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/hot.net.il.ico" alt="" class="favicon">הוט</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-hotmobile"><a href="http://www.hotmobile.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/hotmobile.co.il.ico" alt="" class="favicon">הוט מובייל</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-bezeq"><a href="http://www.bezeq.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/bezeq.co.il.ico" alt="" class="favicon">בזק</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-bezeqint"><a href="http://www.bezeqint.net" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/bezeqint.net.ico" alt="" class="favicon">בזק בינלאומי</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-golan"><a href="http://www.golantelecom.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/golantelecom.co.il.ico" alt="" class="favicon">גולן טלקום</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-we4g"><a href="http://www.we4g.co.il" target="_blank" class="link-card" data-hebrew-search="וויפורג'י"><img src="https://icons.duckduckgo.com/ip3/we4g.co.il.ico" alt="" class="favicon">We4G</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-019"><a href="http://www.019mobile.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/019mobile.co.il.ico" alt="" class="favicon">019 מובייל</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-xphone"><a href="http://xphone.co.il" target="_blank" class="link-card" data-hebrew-search="אקספון"><img src="https://icons.duckduckgo.com/ip3/xphone.co.il.ico" alt="" class="favicon">אקספון (Xphone)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-unlimited"><a href="http://www.unlimited.co.il" target="_blank" class="link-card" data-hebrew-search="אנלימיטד"><img src="https://icons.duckduckgo.com/ip3/unlimited.co.il.ico" alt="" class="favicon">Unlimited</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-hadran"><a href="http://www.hadran.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/hadran.co.il.ico" alt="" class="favicon">הדרן</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-rimon"><a href="http://www.rimon.net.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/rimon.net.il.ico" alt="" class="favicon">אינטרנט רימון</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-etrog"><a href="http://www.etrog.net.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/etrog.net.il.ico" alt="" class="favicon">אינטרנט אתרוג</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-nativ"><a href="http://www.nativ.net" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/nativ.net.ico" alt="" class="favicon">אינטרנט נתיב</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-netspark"><a href="http://www.netspark.com/he" target="_blank" class="link-card" data-hebrew-search="נטספארק"><img src="https://icons.duckduckgo.com/ip3/netspark.com.ico" alt="" class="favicon">נטספארק</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="comm-netfree"><a href="http://netfree.link" target="_blank" class="link-card" data-hebrew-search="נטפרי"><img src="https://icons.duckduckgo.com/ip3/netfree.link.ico" alt="" class="favicon">נטפרי</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- קניות וצרכנות -->
+            <section class="category-section" data-category-id="shopping">
+                <header class="category-header">
+                    <h2 class="category-title">קניות וצרכנות</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="shop-shufersal"><a href="http://www.shufersal.co.il" target="_blank" class="link-card" data-hebrew-search="סופר"><img src="https://icons.duckduckgo.com/ip3/shufersal.co.il.ico" alt="" class="favicon">שופרסל Online</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="shop-rami-levy"><a href="http://www.rami-levy.co.il" target="_blank" class="link-card" data-hebrew-search="סופר"><img src="https://icons.duckduckgo.com/ip3/rami-levy.co.il.ico" alt="" class="favicon">רמי לוי באינטרנט</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="shop-osher-ad"><a href="http://www.osherad.co.il" target="_blank" class="link-card" data-hebrew-search="סופר"><img src="https://icons.duckduckgo.com/ip3/osherad.co.il.ico" alt="" class="favicon">אושר עד Online</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="shop-hazi-hinam"><a href="http://www.hazi-hinam.co.il" target="_blank" class="link-card" data-hebrew-search="סופר"><img src="https://icons.duckduckgo.com/ip3/hazi-hinam.co.il.ico" alt="" class="favicon">חצי חינם</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="shop-victory"><a href="http://www.victoryonline.co.il" target="_blank" class="link-card" data-hebrew-search="סופר"><img src="https://icons.duckduckgo.com/ip3/victoryonline.co.il.ico" alt="" class="favicon">ויקטורי Online</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="shop-be"><a href="http://www.be.co.il" target="_blank" class="link-card" data-hebrew-search="פארם בי"><img src="https://icons.duckduckgo.com/ip3/be.co.il.ico" alt="" class="favicon">Be (פארם)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="shop-yad2"><a href="http://www.yad2.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/yad2.co.il.ico" alt="" class="favicon">יד2</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="shop-zap"><a href="http://www.zap.co.il" target="_blank" class="link-card" data-hebrew-search="זאפ"><img src="https://icons.duckduckgo.com/ip3/zap.co.il.ico" alt="" class="favicon">Zap השוואת מחירים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="shop-chita"><a href="http://chitadelivery.co.il" target="_blank" class="link-card" data-hebrew-search="משלוח"><img src="https://icons.duckduckgo.com/ip3/chitadelivery.co.il.ico" alt="" class="favicon">צ'יטה משלוחים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="shop-ups"><a href="http://www.ups.com" target="_blank" class="link-card" data-hebrew-search="יו פי אס משלוח"><img src="https://icons.duckduckgo.com/ip3/ups.com.ico" alt="" class="favicon">UPS</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ממשל ושירותים ציבוריים -->
+            <section class="category-section" data-category-id="government">
+                <header class="category-header">
+                    <h2 class="category-title">ממשל ושירותים ציבוריים</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="gov-portal"><a href="http://www.gov.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/gov.il.ico" alt="" class="favicon">פורטל Gov.il</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="gov-myvisit"><a href="http://myvisit.com" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/myvisit.com.ico" alt="" class="favicon">MyVisit (זימון תורים)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="gov-btl"><a href="http://www.btl.gov.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/btl.gov.il.ico" alt="" class="favicon">ביטוח לאומי</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="gov-post"><a href="http://israelpost.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/israelpost.co.il.ico" alt="" class="favicon">דואר ישראל</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="gov-teachers"><a href="http://poh.education.gov.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/poh.education.gov.il.ico" alt="" class="favicon">פורטל עובדי הוראה</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="gov-weather"><a href="http://ims.gov.il/he" target="_blank" class="link-card" data-hebrew-search="מזג אוויר"><img src="https://icons.duckduckgo.com/ip3/ims.gov.il.ico" alt="" class="favicon">השירות המטאורולוגי</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="gov-isa"><a href="http://www.isa.gov.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/isa.gov.il.ico" alt="" class="favicon">רשות ניירות ערך</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="gov-taasuka"><a href="http://www.taasuka.gov.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/taasuka.gov.il.ico" alt="" class="favicon">שירות התעסוקה</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="gov-kol-zchut"><a href="http://www.kolzchut.org.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/kolzchut.org.il.ico" alt="" class="favicon">כל-זכות</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- תחבורה -->
+            <section class="category-section" data-category-id="transportation">
+                <header class="category-header">
+                    <h2 class="category-title">תחבורה</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="trans-maps"><a href="http://maps.google.com" target="_blank" class="link-card" data-hebrew-search="גוגל מפות ניווט"><img src="https://ssl.gstatic.com/images/branding/product/1x/maps_2020q4_48dp.png" alt="" class="favicon">Google Maps</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="trans-rail"><a href="http://www.rail.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/rail.co.il.ico" alt="" class="favicon">רכבת ישראל</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="trans-waze"><a href="http://www.waze.com/he" target="_blank" class="link-card" data-hebrew-search="ווייז ניווט"><img src="https://icons.duckduckgo.com/ip3/waze.com.ico" alt="" class="favicon">Waze</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="trans-moovit"><a href="http://moovitapp.com" target="_blank" class="link-card" data-hebrew-search="מוביט אוטובוס"><img src="https://icons.duckduckgo.com/ip3/moovitapp.com.ico" alt="" class="favicon">Moovit</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="trans-egged"><a href="http://www.egged.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/egged.co.il.ico" alt="" class="favicon">אגד</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="trans-ravkav"><a href="http://ravkavonline.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/ravkavonline.co.il.ico" alt="" class="favicon">רב-קו אונליין</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="trans-pango"><a href="http://www.pango.co.il" target="_blank" class="link-card" data-hebrew-search="פנגו"><img src="https://icons.duckduckgo.com/ip3/pango.co.il.ico" alt="" class="favicon">פנגו</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="trans-netivei-israel"><a href="http://www.netivei.gov.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/netivei.gov.il.ico" alt="" class="favicon">נתיבי ישראל</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- שירותי חירום ועזרה -->
+            <section class="category-section" data-category-id="emergency">
+                <header class="category-header">
+                    <h2 class="category-title">שירותי חירום ועזרה</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="emergency-oref"><a href="http://www.oref.org.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/oref.org.il.ico" alt="" class="favicon">פיקוד העורף</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="emergency-mda"><a href="http://www.mdais.org" target="_blank" class="link-card" data-hebrew-search="מדא"><img src="https://icons.duckduckgo.com/ip3/mdais.org.ico" alt="" class="favicon">מגן דוד אדום</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="emergency-zaka"><a href="http://zaka.org.il" target="_blank" class="link-card" data-hebrew-search="זקא"><img src="https://icons.duckduckgo.com/ip3/zaka.org.il.ico" alt="" class="favicon">זק"א</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="emergency-yedidim"><a href="http://yedidim-il.org" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/yedidim-il.org.ico" alt="" class="favicon">ידידים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="emergency-1221"><a href="http://1221.org.il" target="_blank" class="link-card" data-hebrew-search="איחוד הצלה"><img src="https://icons.duckduckgo.com/ip3/1221.org.il.ico" alt="" class="favicon">מוקד 1221</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- יהדות, תורה ומורשת -->
+            <section class="category-section" data-category-id="judaism">
+                <header class="category-header">
+                    <h2 class="category-title">יהדות, תורה ומורשת</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="judaism-hamichlol"><a href="http://hamichlol.org.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/hamichlol.org.il.ico" alt="" class="favicon">המכלול</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-hebrewbooks"><a href="http://www.hebrewbooks.org" target="_blank" class="link-card" data-hebrew-search="היברובוקס"><img src="https://icons.duckduckgo.com/ip3/hebrewbooks.org.ico" alt="" class="favicon">HebrewBooks</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-otzar"><a href="http://www.otzar.org" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/otzar.org.ico" alt="" class="favicon">אוצר החכמה</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-otzaria"><a href="http://www.otzaria.org" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/otzaria.org.ico" alt="" class="favicon">אוצריא</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-responsa"><a href="http://www.responsa.org.il" target="_blank" class="link-card" data-hebrew-search="בר אילן"><img src="https://icons.duckduckgo.com/ip3/responsa.org.il.ico" alt="" class="favicon">פרויקט השו"ת</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-sefaria"><a href="http://www.sefaria.org.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/sefaria.org.il.ico" alt="" class="favicon">ספריא</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-mamre"><a href="http://mechon-mamre.org" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/mechon-mamre.org.ico" alt="" class="favicon">מכון ממרא</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-daat"><a href="http://www.daat.ac.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/daat.ac.il.ico" alt="" class="favicon">דעת</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-wikisource"><a href="http://he.wikisource.org" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/wikisource.org.ico" alt="" class="favicon">ויקיטקסט</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-wikiyeshiva"><a href="http://wiki.jewishbooks.org.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/jewishbooks.org.il.ico" alt="" class="favicon">ויקישיבה</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-snunit"><a href="http://kodesh.snunit.k12.il/i/tr/t0.htm" target="_blank" class="link-card" data-hebrew-search="תנך"><img src="https://icons.duckduckgo.com/ip3/snunit.k12.il.ico" alt="" class="favicon">תנ"ך - סנונית</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-keter"><a href="http://www.mgketer.org/tanach" target="_blank" class="link-card" data-hebrew-search="תנך"><img src="https://icons.duckduckgo.com/ip3/mgketer.org.ico" alt="" class="favicon">כתר ירושלים (תנ"ך)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-kosharot"><a href="http://www.kosharot.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/kosharot.co.il.ico" alt="" class="favicon">כושרות</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-hebrew-academy"><a href="http://hebrew-academy.org.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/hebrew-academy.org.il.ico" alt="" class="favicon">האקדמיה ללשון</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-kotar"><a href="http://kotar.cet.ac.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/kotar.cet.ac.il.ico" alt="" class="favicon">כותר (ספרים דיגיטליים)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-niby"><a href="http://www.niby.org.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/niby.org.il.ico" alt="" class="favicon">נביאים וכתובים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-halacha-brura"><a href="http://www.halachabrura.org" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/halachabrura.org.ico" alt="" class="favicon">הלכה ברורה</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-kol-halashon"><a href="http://www2.kolhalashon.com" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/kolhalashon.com.ico" alt="" class="favicon">קול הלשון</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="judaism-torat-emet"><a href="http://www.toratemetfreeware.com" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/toratemetfreeware.com.ico" alt="" class="favicon">תורת אמת</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- אתרי ישיבות ומוסדות -->
+            <section class="category-section" data-category-id="yeshivot">
+                <header class="category-header">
+                    <h2 class="category-title">אתרי ישיבות ומוסדות</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="yeshiva-site"><a href="http://www.yeshiva.org.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/yeshiva.org.il.ico" alt="" class="favicon">אתר ישיבה</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="yeshiva-or-vishua"><a href="http://www.orvishua.com" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/orvishua.com.ico" alt="" class="favicon">אור וישועה</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="yeshiva-netivot-israel"><a href="http://www.youtube.com/@NetivotISRBY" target="_blank" class="link-card" data-hebrew-search="יוטיוב הרב יצחק בצרי"><img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="" class="favicon">ישיבת נתיבות ישראל</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- חנויות ספרים (תורני) -->
+            <section class="category-section" data-category-id="bookstores">
+                <header class="category-header">
+                    <h2 class="category-title">חנויות ספרים (תורני)</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="book-rav-kook"><a href="http://mosadharavkook.com" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/mosadharavkook.com.ico" alt="" class="favicon">מוסד הרב קוק</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-oz-vehadar"><a href="http://oz-vehadar.net" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/oz-vehadar.net.ico" alt="" class="favicon">עוז והדר</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-alter"><a href="http://alterbooks.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/alterbooks.co.il.ico" alt="" class="favicon">אלתר ספרים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-hbooks"><a href="http://www.hbooks.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/hbooks.co.il.ico" alt="" class="favicon">hbooks</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-kodesh"><a href="http://www.kodeshbook.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/kodeshbook.co.il.ico" alt="" class="favicon">ספרי קודש</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-sefer-org"><a href="http://www.sefer.org.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/sefer.org.il.ico" alt="" class="favicon">אוצר הספרים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-dshir"><a href="http://www.dshir.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/dshir.co.il.ico" alt="" class="favicon">דברי שיר</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-hamadaf"><a href="http://www.hamadaf-y.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/hamadaf-y.co.il.ico" alt="" class="favicon">המדף היהודי</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-lamdan"><a href="http://www.lamdanbooks.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/lamdanbooks.co.il.ico" alt="" class="favicon">למדן ספרים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-orhachaim"><a href="http://www.sifreiorhachaim.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/sifreiorhachaim.co.il.ico" alt="" class="favicon">ספרי אור החיים</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-zolsefer"><a href="http://www.zolsefer.co.il/" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/zolsefer.co.il.ico" alt="" class="favicon">זול ספר</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="book-yefe-nof"><a href="http://yefe.co.il/" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/yefe.co.il.ico" alt="" class="favicon">יפה נוף</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- כלי עבודה ותקשורת -->
+            <section class="category-section" data-category-id="tools">
+                <header class="category-header">
+                    <h2 class="category-title">כלי עבודה ותקשורת</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="tool-whatsapp"><a href="http://web.whatsapp.com" target="_blank" class="link-card" data-hebrew-search="ווטסאפ"><img src="https://icons.duckduckgo.com/ip3/whatsapp.com.ico" alt="" class="favicon">WhatsApp Web</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="tool-zoom"><a href="http://zoom.us" target="_blank" class="link-card" data-hebrew-search="זום"><img src="https://icons.duckduckgo.com/ip3/zoom.us.ico" alt="" class="favicon">Zoom</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="tool-dropbox"><a href="http://www.dropbox.com" target="_blank" class="link-card" data-hebrew-search="דרופבוקס"><img src="https://icons.duckduckgo.com/ip3/dropbox.com.ico" alt="" class="favicon">Dropbox</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="tool-123apps"><a href="http://123apps.com" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/123apps.com.ico" alt="" class="favicon">123apps (כלי אונליין)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="tool-morfix"><a href="http://www.morfix.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/morfix.co.il.ico" alt="" class="favicon">מורפיקס (מילון)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="tool-speedtest"><a href="http://www.speedtest.net" target="_blank" class="link-card" data-hebrew-search="ספידטסט"><img src="https://icons.duckduckgo.com/ip3/speedtest.net.ico" alt="" class="favicon">Speedtest (בדיקת מהירות)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- פורומים וקהילות -->
+            <section class="category-section" data-category-id="forums">
+                <header class="category-header">
+                    <h2 class="category-title">פורומים וקהילות</h2>
+                    <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </header>
+                <div class="category-content">
+                    <div class="links-grid">
+                        <div class="link-item" data-id="forum-mitmachim"><a href="http://mitmachim.top" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/mitmachim.top.ico" alt="" class="favicon">פורום מתמחים טופ</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="forum-prog"><a href="http://www.prog.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/prog.co.il.ico" alt="" class="favicon">פרוג (קהילות תוכן)</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                        <div class="link-item" data-id="forum-tora"><a href="http://tora-forum.co.il" target="_blank" class="link-card"><img src="https://icons.duckduckgo.com/ip3/tora-forum.co.il.ico" alt="" class="favicon">פורום לתורה</a><svg class="favorite-toggle" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>דף הקישורים נוצר על בסיס רשימת אתרים אישית.</p>
+    </footer>
+
+    <!-- קישור לקובץ ה-JavaScript החיצוני -->
+    <script src="script.js"></script>
+</body>
+</html>
