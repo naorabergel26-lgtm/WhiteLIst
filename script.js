@@ -15,10 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createLinkItemHTML(linkItem) {
         if (!linkItem) return '';
-        // Create a clone to avoid issues with event listeners being duplicated
         const clone = linkItem.cloneNode(true);
         return `<div class="link-item" data-id="${clone.dataset.id}">${clone.innerHTML}</div>`;
     }
+    
+    function createFavoriteLinkItemHTML(linkItem) {
+        if (!linkItem) return '';
+        const clone = linkItem.cloneNode(true);
+        const favoriteToggle = clone.querySelector('.favorite-toggle');
+        if (favoriteToggle) {
+            favoriteToggle.remove(); // Remove the star icon
+        }
+        return `<div class="link-item" data-id="${clone.dataset.id}">${clone.innerHTML}</div>`;
+    }
+
 
     function renderDynamicCategories() {
         let html = '';
@@ -44,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <svg class="toggle-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
                     </header>
                     <div class="category-content"><div class="links-grid">
-                        ${favorites.map(id => createLinkItemHTML(allLinkItems.find(item => item.dataset.id === id))).join('')}
+                        ${favorites.map(id => createFavoriteLinkItemHTML(allLinkItems.find(item => item.dataset.id === id))).join('')}
                     </div></div>
                 </section>`;
         }
@@ -52,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dynamicCategoriesContainer.innerHTML = html;
         updateFavoriteIcons();
         addEventListenersToDynamicItems();
-        setInitialCollapseState(); // Apply collapse state to newly created dynamic categories
+        setInitialCollapseState();
     }
     
     function updateFavoriteIcons() {
@@ -67,7 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleFavoriteClick(e) {
-        e.stopPropagation(); // Prevent card click from triggering link navigation
+        e.stopPropagation(); 
+        e.preventDefault();
         const linkId = e.target.closest('.link-item').dataset.id;
         if (favorites.includes(linkId)) {
             favorites = favorites.filter(id => id !== linkId);
@@ -79,9 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleLinkClick(e) {
-        const linkId = e.target.closest('.link-item').dataset.id;
-        // Update recently used list
-        recentlyUsed = [linkId, ...recentlyUsed.filter(id => id !== linkId)].slice(0, 5); // Keep last 5
+        const linkItem = e.target.closest('.link-item');
+        if (!linkItem) return;
+        const linkId = linkItem.dataset.id;
+
+        recentlyUsed = [linkId, ...recentlyUsed.filter(id => id !== linkId)].slice(0, 5); 
         localStorage.setItem('recentlyUsed', JSON.stringify(recentlyUsed));
     }
 
@@ -119,6 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (visibleLinksInCategory > 0) {
                 category.style.display = 'block';
+                if (searchTerm) {
+                    category.classList.remove('collapsed');
+                }
             } else {
                 category.style.display = 'none';
             }
@@ -157,16 +173,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Initial Event Listeners Setup ---
     searchInput.addEventListener('input', performSearch);
     
-    mainCategoriesContainer.querySelectorAll('.favorite-toggle').forEach(toggle => {
-        toggle.addEventListener('click', handleFavoriteClick);
-    });
-    
-    mainCategoriesContainer.querySelectorAll('.link-card').forEach(card => {
-        card.addEventListener('click', handleLinkClick);
-    });
-
-    mainCategoriesContainer.querySelectorAll('.category-header').forEach(header => {
-        header.addEventListener('click', handleCollapseToggle);
+    document.body.addEventListener('click', (e) => {
+        if (e.target.closest('.favorite-toggle')) {
+            handleFavoriteClick(e);
+        } else if (e.target.closest('.link-card')) {
+            handleLinkClick(e);
+        } else if (e.target.closest('.category-header')) {
+            handleCollapseToggle(e);
+        }
     });
 
     expandAllBtn.addEventListener('click', () => {
@@ -176,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     collapseAllBtn.addEventListener('click', () => {
-        const allCategoryIds = Array.from(document.querySelectorAll('.category-section')).map(s => s.dataset.categoryId);
+        const allCategoryIds = Array.from(document.querySelectorAll('.category-section')).map(s => s.dataset.categoryId).filter(Boolean);
         document.querySelectorAll('.category-section').forEach(s => s.classList.add('collapsed'));
         collapsedCategories = allCategoryIds;
         localStorage.setItem('collapsedCategories', JSON.stringify(collapsedCategories));
