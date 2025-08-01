@@ -5,8 +5,8 @@
     --accent-color: #007bff;
     --border-color: #dee8f7;
     --shadow-color: rgba(0, 81, 178, 0.07);
-    --star-color: #ffca28;
-    --star-inactive-color: #cccccc;
+    --star-color: #ffc107;
+    --star-inactive-stroke-color: #b0c4de;
 }
 
 *, *::before, *::after {
@@ -19,7 +19,6 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     direction: rtl;
-    /* opacity and animation removed */
 }
 
 .search-container {
@@ -71,23 +70,27 @@ body {
 
 .controls {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 25px;
 }
 
 .control-button {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     color: var(--accent-color);
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 12px 24px;
+    border-radius: 25px;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.2s ease-in-out;
 }
 
 .control-button:hover {
-    background: #eef5ff;
+    background: #e9f2ff;
     border-color: var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0, 81, 178, 0.1);
+    transform: translateY(-1px);
 }
 
 .category-section {
@@ -95,8 +98,14 @@ body {
     border-radius: 12px;
     margin-bottom: 25px;
     box-shadow: 0 4px 15px var(--shadow-color);
-    border: 1px solid var(--border-color);
+    /* --- CHANGE: Darker border color for category sections --- */
+    border: 1px solid #c9d7e9;
     overflow: hidden;
+}
+
+.category-section[data-category-id="favorites"],
+.category-section[data-category-id="recent"] {
+    border-right: 4px solid var(--accent-color);
 }
 
 .category-header {
@@ -122,6 +131,7 @@ body {
     width: 24px;
     height: 24px;
     fill: #888;
+    transition: transform 0.2s ease;
 }
 
 .category-section.collapsed .toggle-arrow {
@@ -130,11 +140,10 @@ body {
 
 .category-content {
     padding: 0 20px 20px;
-    /* transition removed for instant collapse/expand */
 }
 
 .category-section.collapsed .category-content {
-    display: none; /* simpler and more effective for no animation */
+    display: none;
 }
 
 .links-grid {
@@ -149,13 +158,15 @@ body {
     display: flex;
     align-items: center;
     background-color: #f7fbff;
-    border: 1px solid var(--border-color);
+    border: 1px solid #c9d7e9; 
     border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
 .link-item:hover {
     border-color: var(--accent-color);
     background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 81, 178, 0.08);
 }
 
 .link-card {
@@ -167,9 +178,8 @@ body {
     align-items: center;
     font-weight: 500;
     font-size: 1rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-word;
 }
 
 .link-card .favicon {
@@ -180,28 +190,38 @@ body {
 }
 
 .favorite-toggle {
-    padding: 10px 15px 10px 10px;
+    padding: 10px;
     cursor: pointer;
-    fill: var(--star-inactive-color);
     flex-shrink: 0;
-    width: 54px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.2s ease;
+    fill: transparent;
+    stroke: var(--star-inactive-stroke-color);
+    stroke-width: 1.5;
+}
+
+.favorite-toggle svg path {
+    vector-effect: non-scaling-stroke;
 }
 
 .favorite-toggle svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+}
+
+.favorite-toggle:hover {
+    background-color: #eef5ff;
+    border-radius: 50%;
 }
 
 .favorite-toggle.is-favorite {
     fill: var(--star-color);
-}
-
-.favorite-toggle:hover {
-    fill: var(--star-color);
+    stroke: var(--star-color);
+    filter: none;
 }
 
 #no-results-message {
@@ -216,18 +236,16 @@ body {
     display: contents;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    color: #777;
-}
-
 @media (max-width: 600px) {
+    .container {
+        padding: 20px 15px;
+    }
+
     .links-grid {
         grid-template-columns: 1fr;
     }
+    
     #searchInput {
         font-size: 1rem;
     }
-}
+}ד
